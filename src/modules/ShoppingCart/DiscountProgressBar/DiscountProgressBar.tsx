@@ -1,7 +1,7 @@
-import React, { useContext, useState, useEffect } from "react";
-import { ShoppingCartContext } from "../ShoppingCartContext";
+import React from "react";
+import { DiscountProgressConfig } from "../types";
+import { useProgressHooks } from "./DiscountProgressBar.hooks";
 import "./DiscountProgressBar.scss";
-import { DiscountProgress, DiscountProgressConfig } from "../types";
 
 interface Props {
   config: DiscountProgressConfig;
@@ -10,35 +10,7 @@ interface Props {
 export const DiscountProgressBar: React.FunctionComponent<Props> = ({
   config,
 }) => {
-  const [fullConfig, setFullConfig] = useState<DiscountProgress | undefined>();
-
-  const {
-    cart: { subtotal },
-  } = useContext(ShoppingCartContext);
-
-  useEffect(() => {
-    const fC = Object.keys(config).reduce(
-      (ac: any, cv: string, ci: number, vector: string[]) => {
-        const progress = subtotal / Number(cv) > 1 ? 1 : subtotal / Number(cv);
-        const progressPos = (index: number) => ac[vector[index]]?.progress;
-        const obj = {
-          amount: config[Number(cv)],
-          progress: progressPos(ci - 1) < 1 ? 0 : progress,
-          isReached:
-            (ci < vector.length - 1 &&
-              progressPos(ci) === 1 &&
-              progressPos(ci + 1) < 1) ||
-            (ci === vector.length - 1 && progressPos(ci) === 1),
-        };
-        return {
-          ...ac,
-          [cv]: obj,
-        };
-      },
-      {}
-    );
-    setFullConfig(fC);
-  }, [config, subtotal]);
+  const { fullConfig, indexReached } = useProgressHooks(config);
 
   return (
     <div className="progress-bar">
@@ -46,6 +18,8 @@ export const DiscountProgressBar: React.FunctionComponent<Props> = ({
         {!!fullConfig &&
           Object.keys(fullConfig).map(
             (el: any, index: number, array: string[]) => {
+              const isReached = indexReached === el;
+
               return (
                 <div
                   key={el}
@@ -60,13 +34,7 @@ export const DiscountProgressBar: React.FunctionComponent<Props> = ({
                   />
                   <div
                     className={`progress-bar__text-off${
-                      (index < array.length - 1 &&
-                        fullConfig[array[index] as any].progress === 1 &&
-                        fullConfig[array[index + 1] as any].progress < 1) ||
-                      (index === array.length - 1 &&
-                        fullConfig[array[index] as any].progress === 1)
-                        ? " progress-bar__text-off--reached"
-                        : ""
+                      isReached ? " progress-bar__text-off--reached" : ""
                     }`}
                   >
                     ${fullConfig[el].amount} OFF
