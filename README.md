@@ -1,36 +1,14 @@
-# Thirdlove Engineering Challenge
+# TL Engineering Challenge
+#### Author: Daniel Klie
 
-## Use Case
+## Challenge Description
+Github: https://github.com/mecommerce/tl-challenge
 
-We have a shopping cart that the customer can use to add products: bras and underwear that she will later purchase.
-To incentivize the user to buy more products, we will offer discounts based on the amount of USD she spends.
-We want to add a progress bar that visually shows the amount that is being discounted to the customer.
-
-## Requirements:
-As part of the cart update, we will be adding a progress bar that will allow the customer to see how far they are from the next tier of savings.
-Progress bar will have 4 spend tiers:
-* $15 off
-* $20 off
-* $30 off
-* $50 off
-
-## Design
-Figma: https://www.figma.com/file/kACmnEK2TJl6V9lTfwH80S/Mini-Cart-Rebrand?node-id=672%3A0
-## Animation
-Figma: https://www.figma.com/proto/G7fsR7kLOivXR6Ie4A14qM/Cart---Kits-%2B-upsell?node-id=646%3A1684&viewport=756%2C680%2C1.251747488975525&scaling=min-zoom
-
-## What we expect to see:
-* A production-ready code, which has all the elements that you would include in a piece of code you’d deliver at your current job. For example unit tests, linting, code minification, etc
-* Code that follows the best practices and performance, avoiding compromising the usability of the site from the customer’s perspective.
-
-## Stretch goal
-
-* Each time the customer adds a product using the "Add Bra" and "Add Underwear button" add the actual item section, including an image, product name, and quantity selectors as shown in the image https://ibb.co/Kyh8twH or Figma
-
-
-## What we will love to see in your work:
-* Good balance between "not assuming things" and "common sense".
-* Any kind of improvement you may consider useful but between the boundaries of the provided scope.
+## Important notes
+- Modules folder structure
+- Some components tested with jest and react-testing-library (didn't have time to fully test them)
+- Using ContextAPI to manage shopping cart state
+- Using sass and BEM methodology for styling
 
 ## Available Scripts
 
