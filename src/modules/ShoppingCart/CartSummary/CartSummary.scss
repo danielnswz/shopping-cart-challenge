@@ -1,0 +1,9 @@
+.cart-summary-container {
+    width: 100%;
+    &__total{
+        display: flex;
+        width: 300px;
+        justify-content: space-between;
+        margin: 10px auto;
+    }
+}
