@@ -25,6 +25,7 @@ export const useProgressHooks = (config: DiscountProgressConfig) => {
       },
       {}
     );
+
     setFullConfig(fC);
   }, [config, subtotal]);
 
