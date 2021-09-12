@@ -75,5 +75,6 @@ export const useProgressHooks = (config: DiscountProgressConfig) => {
       );
     }
   }, [fullConfig]);
+
   return { fullConfig, indexReached };
 };

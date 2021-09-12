@@ -7,6 +7,7 @@ export const CartItemList: React.FC = () => {
   const {
     cart: { items },
   } = useContext(ShoppingCartContext);
+
   return (
     <div className="cart-items-container">
       {items.map((item) => {
