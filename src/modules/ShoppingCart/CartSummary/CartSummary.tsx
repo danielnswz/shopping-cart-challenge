@@ -9,7 +9,6 @@ export const CartSummary: React.FC = () => {
 
   return (
     <div className="cart-summary-container">
-      <hr />
       <div className="cart-summary-container__total">
         <span>Build Your Kit Subtotal:</span>
         <span>${subtotal.toFixed(2)}</span>

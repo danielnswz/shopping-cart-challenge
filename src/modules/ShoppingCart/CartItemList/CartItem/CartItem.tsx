@@ -24,7 +24,6 @@ export const CartItem: React.FC<Props> = ({ item }) => {
         <small>{item.productType}</small>
         <div className="cart-item__qty-section">
           <div className="cart-item__qty-section__buttons">
-            <small>Qty: </small>
             <button onClick={() => addNewItem(item, (item.qty || 1) - 1)}>
               -
             </button>

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ShoppingCartContext } from "../ShoppingCartContext";
 import { CartItem } from "./CartItem";
-import "./CartItem.scss";
+import "./CartItemList.scss";
 
 export const CartItemList: React.FC = () => {
   const {
@@ -10,12 +10,17 @@ export const CartItemList: React.FC = () => {
 
   return (
     <div className="cart-items-container">
-      {!items.length && <h2>Your cart is empty</h2>}
+      {!items.length && (
+        <>
+          <h2>Your cart is empty</h2>
+          <hr />
+        </>
+      )}
       {items.map((item) => {
         return (
           <React.Fragment key={item.product}>
-            <hr />
             <CartItem key={item.product} item={item} />
+            <hr />
           </React.Fragment>
         );
       })}

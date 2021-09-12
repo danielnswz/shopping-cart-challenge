@@ -37,12 +37,25 @@
         &__buttons{
             display: flex;
             align-items: center;
+            border: 1px solid rgba(44, 39, 45, 0.1);
+            box-sizing: border-box;
+            border-radius: 4px;
             & small {
                 color: black;
             }
             & button {
-                border: unset;
+                padding: 0px;
                 cursor: pointer;
+                background: transparent;
+                color: rgb(44, 39, 45);
+                border: none;
+                text-align: center;
+                text-decoration: none;
+                outline: none;
+                width: 28px;
+                height: 28px;
+                line-height: 20px;
+                font-size: 14px;
             }
             & input {
                 border: unset;
