@@ -10,6 +10,7 @@ export const CartItemList: React.FC = () => {
 
   return (
     <div className="cart-items-container">
+      {!items.length && <h2>Your cart is empty</h2>}
       {items.map((item) => {
         return (
           <React.Fragment key={item.product}>
