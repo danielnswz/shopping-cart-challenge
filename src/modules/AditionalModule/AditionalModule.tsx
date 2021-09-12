@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react'
+import React from "react";
 
-export function AditionalModule(): ReactElement {
-  return <div />
-}
+export const AditionalModule: React.FC = () => {
+  return <div />;
+};

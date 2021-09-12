@@ -6,6 +6,7 @@ interface Props {
   title: string;
   config: DiscountProgressConfig;
 }
+
 export const CartHeader: React.FC<Props> = ({ title, config }) => {
   const {
     cart: { discountIndex },
@@ -16,6 +17,13 @@ export const CartHeader: React.FC<Props> = ({ title, config }) => {
     tierSaving: Object.entries(config)[0][1],
   });
 
+  /**
+   * @name updateTierEffect
+   * @param {DiscountProgressConfig} config - useEffect dependency (discount progress configuration)
+   * @description Updates tier state so it can render the proper message regarding the next discount
+   * @memberof CartHeader
+   * @see updateIndexReachedEffect
+   */
   useEffect(() => {
     const configIndex = Object.keys(config).findIndex(
       (el) => el === discountIndex

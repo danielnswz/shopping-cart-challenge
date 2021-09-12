@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import { ShoppingCartContext } from "../ShoppingCartContext";
 import "./CartSummary.scss";
 
-export const CartSummary = () => {
+export const CartSummary: React.FC = () => {
   const {
     cart: { total, subtotal },
   } = useContext(ShoppingCartContext);
+
   return (
     <div className="cart-summary-container">
       <hr />

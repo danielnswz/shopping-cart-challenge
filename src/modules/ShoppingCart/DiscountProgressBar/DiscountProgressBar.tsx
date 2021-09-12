@@ -7,9 +7,7 @@ interface Props {
   config: DiscountProgressConfig;
 }
 
-export const DiscountProgressBar: React.FunctionComponent<Props> = ({
-  config,
-}) => {
+export const DiscountProgressBar: React.FC<Props> = ({ config }) => {
   const { fullConfig, indexReached } = useProgressHooks(config);
 
   return (
