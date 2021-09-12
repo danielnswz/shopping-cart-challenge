@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    min-height: 26px;
+    height: 26px;
 
     &__container{
         position:relative;
@@ -35,18 +35,13 @@
     }
 
     &__text-off{
-        // font-family: Founders Grotesk Text;
         font-style: normal;
         font-weight: normal;
         font-size: 0.7rem;
-        line-height: 0.75rem;
-        /* identical to box height, or 127% */
-
+        line-height: 1rem;
         text-align: end;
         letter-spacing: 0.3px;
         text-transform: uppercase;
-
-        /* Text: Primary */
 
         color: #2C272D;
         &--reached{

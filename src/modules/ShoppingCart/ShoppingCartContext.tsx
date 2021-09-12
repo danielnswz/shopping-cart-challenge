@@ -29,6 +29,14 @@ export const ShoppingCartContextProvider: React.FC<Props> = ({
 }) => {
   const [cart, setCart] = useState<ICart>(shoppingCartInitialValue);
 
+  /**
+   * @name addNewItem
+   * @param {ILineItem} item - Cart item to be added or modified
+   * @param {number} qty - Cart item qty to be set
+   * @description Adds a new item to the cart in case it's not already there
+   * @description otherwise, it will either modify the item qty or delete it from the list
+   * @memberof ShoppingCartContext
+   */
   const addNewItem = (item: ILineItem, qty: number = 1) => {
     const index = cart.items.findIndex((el) => el.product === item.product);
     let items: ILineItem[];
@@ -50,6 +58,14 @@ export const ShoppingCartContextProvider: React.FC<Props> = ({
     });
   };
 
+  /**
+   * @name discountCalculationEffect
+   * @param {string} cart.items - useEffect dependency (cart items)
+   * @param {DiscountProgressConfig} config - useEffect dependency (discount progress configuration)
+   * @description Whenever the cart items or the config are modified, it will recalculate
+   * @description and update the total and subtotal applying the proper discount
+   * @memberof ShoppingCartContextProvider
+   */
   useEffect(() => {
     const subtotal = cart.items.reduce(
       (reducer, item) => reducer + item.price * (item.qty || 1),

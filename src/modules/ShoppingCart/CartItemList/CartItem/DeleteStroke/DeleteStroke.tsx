@@ -4,6 +4,7 @@ import "./DeleteStroke.scss";
 interface Props {
   onClick: () => void;
 }
+
 export const DeleteStroke: React.FC<Props> = ({ onClick }) => {
   return (
     <div className="delete-stroke">

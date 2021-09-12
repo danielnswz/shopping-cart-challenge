@@ -7,8 +7,10 @@ import { DeleteStroke } from "./DeleteStroke";
 interface Props {
   item: ILineItem;
 }
+
 export const CartItem: React.FC<Props> = ({ item }) => {
   const { addNewItem } = useContext(ShoppingCartContext);
+
   return (
     <div className="cart-item__container">
       <img

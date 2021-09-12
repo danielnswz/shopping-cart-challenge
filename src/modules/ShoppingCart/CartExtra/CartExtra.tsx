@@ -4,14 +4,16 @@ import { bras1, bras2, panties } from "../items";
 import { ILineItem } from "../types";
 import "./CartExtra.scss";
 
-export const CartExtra = () => {
+export const CartExtra: React.FC = () => {
   const {
     addNewItem,
     cart: { items },
   } = useContext(ShoppingCartContext);
+
   const isItemInCart = (item: ILineItem): boolean => {
     return !!items.find((el) => el.product === item.product);
   };
+
   return (
     <div className="cart-extra-container">
       <button onClick={() => addNewItem(bras1)} disabled={isItemInCart(bras1)}>
